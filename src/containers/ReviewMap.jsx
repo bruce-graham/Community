@@ -25,8 +25,8 @@ export class ReviewMap extends Component {
     var that = this;
     $.ajax({
       type: "GET",
-      // url: '/api/neighborhoods/reviews/' + that.props.activeNeighborhood.name + '/' + that.props.activeNeighborhood.city + '/' + that.props.activeNeighborhood.state,
-      url: '/api/neighborhoods/reviews/downtown/austin/texas',
+      url: '/api/neighborhoods/reviews/' + that.props.activeNeighborhood.name + '/' + that.props.activeNeighborhood.city + '/' + that.props.activeNeighborhood.state,
+      //url: '/api/neighborhoods/reviews/downtown/austin/texas',
       success: function(data) {
         console.log("Get review successful", data);
         that.props.getReview(data);
@@ -47,14 +47,32 @@ export class ReviewMap extends Component {
 
 
   renderList() {
+  if (this.props.reviews) {
     return this.props.reviews.map((review) => {
       return (
         <div className="panel panel-default">
-        <div className="panel-body"> {review.text} </div>
+        <div className="panel-body"> This neighbor said: {review.text}</div>
+        <div className="retirees"> Overall Rating: {review.stars_overall}</div>
+        <div className="kid_friendly"> Kid Friendly: {review.kid_friendly}</div>
+        <div className="retirees"> Retiree Friendly: {review.retirees}</div>
+        <div className="sense_of_community"> Sense of Community: {review.sense_of_community}</div>
+        <div className="singles_friendly"> Single Friendly: {review.singles_friendly}</div>
+        <div className="nightlife"> Nightlife: {review.nightlife}</div>
+        <div className="entertainment"> Entertainment: {review.entertainment}</div>
+        <div className="affordability"> Affordability: {review.affordability}</div>
+        <div className="amenities"> Amenities: {review.amenities}</div>
+        <div className="safety"> Safety: {review.safety}</div>
+        <div className="culture_arts"> Culture & Arts: {review.culture_arts}</div>
+        <div className="schools"> Schools: {review.schools}</div>
+        <div className="crime"> Crime: {review.crime}</div>
+        <div className="hipster_rating"> Hipster: {review.hipster_rating}</div>
+        <div className="vote_count"> Vote Count: {review.vote_count}</div>
         </div>
       );
     });
   }
+}
+
 
   render() {
     return (
@@ -68,7 +86,8 @@ export class ReviewMap extends Component {
 
 function mapStateToProps(state) {
   return {
-    reviews: state.reviews
+    reviews: state.reviews,
+    activeNeighborhood: state.activeNeighborhood
   };
 }
 

@@ -9,7 +9,6 @@ class NeighborhoodDetail extends Component {
 
   }
 
-
   render() {
 
     if (!this.props.activeNeighborhood) {
