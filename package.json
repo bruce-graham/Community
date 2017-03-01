@@ -2,7 +2,6 @@
   "name": "Stegosaurus",
   "version": "1.0.0",
   "description": "Community",
-  "main": "server/server.js",
   "scripts": {
     "compile": "babel . --watch --out-dir compiled --presets=es2015,react --ignore=node_modules,compiled,database,public,server --source-maps inline",
     "start": "node server/server.js",
