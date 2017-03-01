@@ -5,7 +5,7 @@
   "scripts": {
     "compile": "babel . --watch --out-dir compiled --presets=es2015,react --ignore=node_modules,compiled,database,public,server --source-maps inline",
     "start": "node server/server.js",
-    "preinstall": "webpack",
+    "postinstall": "webpack -p",
     "test": "live-server --open=./src/SpecRunner.html --port=8081"
   },
   "repository": {
@@ -64,7 +64,7 @@
     "open": "0.0.5",
     "sinon": "1.17.3"
   },
-    "engines": {
-      "node": "6.9.4"
+  "engines": {
+    "node": "6.9.4"
   }
 }
