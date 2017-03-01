@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/Stegothesis/Community/issues"
   },
-  "homepage": "https://github.com/Stegothesis/Community#readme",
+  "homepage": "https://github.cgom/Stegothesis/Community#readme",
   "dependencies": {
     "auth0-lock": "^10.11.0",
     "axios": "^0.15.3",
