@@ -13,7 +13,7 @@ export default class App extends React.Component {
           <div className="container">
             <div className="center wow fadeInDown">
               <h1 id="header-font">Neighborly</h1>
-              <p className="lead">A fun new way to get neighborhood information.</p>
+              <p className="lead">Find your next neighborhood</p>
             </div>
           </div>
         </section>
@@ -31,8 +31,19 @@ export default class App extends React.Component {
         <footer id="footer" className="midnight-blue">
             <div className="container">
                 <div className="row">
-                    <div className="col-sm-6">
-                        &copy; 2017 Community. All Rights Reserved.
+                    <div className="col 16 s12 m6">
+                        <h4 class="white-text"> &copy; 2017 Neighborly. All Rights Reserved </h4>
+                        <h4 class="white-text"> Check us out on GitHub </h4>
+                        <a href="https://github.com/Stegothesis/Neighborly">Team Stegos</a>
+                    </div>
+                    <div className="col 14 offset-12 s12 m6">
+                      <h4 class="white-text">Team</h4>
+                      <ul>
+                        <li><a class="white-text" href="https://github.com/renatavmaraj"> Renata Maraj</a></li>
+                        <li><a class="white-text" href="https://github.com/michiang"> Michael Chiang</a></li>
+                        <li><a class="white-text" href="https://github.com/bchasset"> Brian Hassett</a></li>
+                        <li><a class="white-text" href="https://github.com/bruce-graham"> Bruce Graham</a></li>
+                      </ul>
                     </div>
                 </div>
             </div>
