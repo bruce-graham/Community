@@ -7,6 +7,7 @@ import NeighborhoodDetail from '../containers/neighborhood-detail.jsx';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import { selectNeighborhood } from '../actions/action_select_Neighborhood.jsx';
+import { sendZoom } from '../actions/action_zoom.jsx';
 
 export class Neighborhood extends Component {
   constructor(props) {
@@ -14,6 +15,7 @@ export class Neighborhood extends Component {
   }
 
   componentDidMount() {
+    this.props.sendZoom({zoom: 14});
     if (!this.props.neighborhood) {
       var that = this;
       const url = '/api/neighborhoods/searchbycity/' + that.props.params.city + '/' + that.props.params.state;
@@ -70,7 +72,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ selectNeighborhood }, dispatch);
+  return bindActionCreators({ selectNeighborhood, sendZoom }, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Neighborhood);

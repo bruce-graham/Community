@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ReviewSubmit from './ReviewSubmit.jsx';
 import GoogleMap from './GoogleMap.jsx'
-import { sendZoom } from '../actions/action_zoom.jsx';
-
 
 class NeighborhoodDetail extends Component {
   constructor(props) {
@@ -11,9 +9,6 @@ class NeighborhoodDetail extends Component {
 
   }
 
-  componentDidMount() {
-    this.props.sendZoom({zoom: 10});
-  }
 
   render() {
 
@@ -41,8 +36,5 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ sendZoom }, dispatch);
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(NeighborhoodDetail);
+export default connect(mapStateToProps)(NeighborhoodDetail);
