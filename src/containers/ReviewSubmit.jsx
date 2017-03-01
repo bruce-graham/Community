@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux';
 import { postReview } from '../actions/index.jsx';
 import { addReview } from '../actions/index.jsx';
 
-
 class ReviewSubmit extends Component {
   constructor(props) {
     super(props);

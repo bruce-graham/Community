@@ -5,7 +5,6 @@ import { hashHistory } from 'react-router';
 import { push } from 'react-router-redux'
 import GoogleMap from './GoogleMap.jsx';
 
-
 export default class SearchBar extends Component {
   constructor(props) {
     super(props);
@@ -54,6 +53,7 @@ export default class SearchBar extends Component {
             <button type="submit" className="btn btn-secondary">Submit</button>
         </span>
       </form>
+      <GoogleMap />
       </div>
       );
   }

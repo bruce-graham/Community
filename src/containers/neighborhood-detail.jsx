@@ -2,11 +2,20 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ReviewSubmit from './ReviewSubmit.jsx';
 import GoogleMap from './GoogleMap.jsx'
+import { sendZoom } from '../actions/action_zoom.jsx';
+
 
 class NeighborhoodDetail extends Component {
+  constructor(props) {
+    super(props);
+
+  }
+
+  componentDidMount() {
+    this.props.sendZoom({zoom: 10});
+  }
 
   render() {
-    console.log("NEIGHBORHOOD DETAILS RENDER", this.props.activeNeighborhood.latitude);
 
     if (!this.props.activeNeighborhood) {
       return <div></div>;
@@ -32,4 +41,8 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(NeighborhoodDetail);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ sendZoom }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NeighborhoodDetail);

@@ -10,6 +10,7 @@ import axios from 'axios';
 import { fetchNeighborhoodData } from '../actions/action_fetchNeighborhoods.jsx';
 import { sendDefaultCoordinates } from '../actions/action_coordinates.jsx';
 import NeighborhoodDetail from './neighborhood-detail.jsx'
+import { sendZoom } from '../actions/action_zoom.jsx';
 
 export class City extends Component {
   constructor(props) {
@@ -17,6 +18,7 @@ export class City extends Component {
   }
 
   componentDidMount() {
+    this.props.sendZoom({zoom: 10});
     const url = '/api/neighborhoods/searchbycity/' + this.props.params.city + '/' + this.props.params.state;
     var that = this;
     axios.get(url).then(function(response) {
@@ -95,7 +97,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ selectNeighborhood, sendDefaultCoordinates, fetchNeighborhoodData }, dispatch);
+  return bindActionCreators({ selectNeighborhood, sendDefaultCoordinates, fetchNeighborhoodData, sendZoom }, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(City);

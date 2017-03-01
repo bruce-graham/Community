@@ -16,10 +16,16 @@ export class ReviewMap extends Component {
 
   }
 
+  //TODO: Use activeNeighborhood name, city, state to implement url
+  //in order to get reviews for that specific neighborhood
+  //When we get back the reviews, modify mapping to display categories
+  //that were rated by each user
+
   loadReviewsFromServer() {
     var that = this;
     $.ajax({
       type: "GET",
+      // url: '/api/neighborhoods/reviews/' + that.props.activeNeighborhood.name + '/' + that.props.activeNeighborhood.city + '/' + that.props.activeNeighborhood.state,
       url: '/api/neighborhoods/reviews/downtown/austin/texas',
       success: function(data) {
         console.log("Get review successful", data);
@@ -44,7 +50,7 @@ export class ReviewMap extends Component {
     return this.props.reviews.map((review) => {
       return (
         <div className="panel panel-default">
-        <div className="panel-body"> {review.text} {review.createdAt} {review.vote_count} </div>
+        <div className="panel-body"> {review.text} </div>
         </div>
       );
     });
@@ -70,12 +76,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ getReview }, dispatch);
 }
 
-/*
-connect() is a function that injecst Redux-related props into your component
-Inject data and callbacks that change that data by dispatching actions
-The purpose of connect() is that you don't have to think about subscribing to the store
-and instead specify hwo to get props based on Redux store state
-Given redux state, return props.
-Given redux dispatch, return callback props
-*/
 export default connect(mapStateToProps, mapDispatchToProps)(ReviewMap);
